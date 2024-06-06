@@ -4,10 +4,8 @@
 
 #define WHILEUPPERBOUND 1000
 
-typedef struct
-{
+typedef struct{
     void *comp;
-
     node *next, *prev;
 }node;
 

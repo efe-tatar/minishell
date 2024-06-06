@@ -8,6 +8,7 @@ void panic(char *msg)
 
 node* initialiseNode(void *comp)
 {
+    // might remove for other uses
     if(comp == NULL)
         panic("cannot initialise node: comp is missing");
     

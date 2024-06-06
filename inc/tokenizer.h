@@ -27,3 +27,5 @@ typedef struct{
     containing token/value couples 
 */
 entry* tokenize(char* line);
+
+entry* initialiseToken(enum token type, char *value);
