@@ -1,23 +1,22 @@
 SRC=$(wildcard src/*.c)
 TEMP=$(SRC:.c=.o)
-OBJ=$(subst src,obj,$(TEMP))
-INC=$(wildcard lib/*.h)
+OBJ=$(subst src,build,$(TEMP))
+INC=$(wildcard inc/*.h)
 
 all : exe
 
-debug :
+debug:
 	@echo $(SRC)
 	@echo $(OBJ)
 	@echo $(INC)
 
-obj/%.o : src/%.c $(INC)
-	mkdir -p obj
+build/%.o : $(SRC) $(INC)
 	gcc -c $< -o $@
 
-exe : $(OBJ)
-	gcc -fsanitize=address obj/main.o libhash.a -o $@
+exe: $(OBJ)
+	echo hello
+	gcc -fsanitize=address $< -o bin/$@
 
 clean:
-	rm -f obj/*.o
-	rm -f *.a
-	rm -f exe
+	rm -f build/*.o
+	rm -f bin/exe
