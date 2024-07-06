@@ -2,6 +2,21 @@
     "files.associations": {
         "tokenizer.h": "c",
         "stdio.h": "c",
-        "utilities.h": "c"
-    }
+        "utilities.h": "c",
+        "string.h": "c",
+        "libc-header-start.h": "c",
+        "stdlib.h": "c",
+        "array": "c",
+        "compare": "c",
+        "functional": "c",
+        "tuple": "c",
+        "type_traits": "c",
+        "utility": "c",
+        "test.h": "c",
+        "stddef.h": "c",
+        "string_view": "c",
+        "initializer_list": "c",
+        "util.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }

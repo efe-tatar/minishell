@@ -1,21 +1,25 @@
 SRC=$(wildcard src/*.c)
 TEMP=$(SRC:.c=.o)
-OBJ=$(subst src,build,$(TEMP))
-INC=$(wildcard inc/*.h)
+build=$(subst src,build,$(TEMP))
+INC=$(wildcard lib/*.h)
+STATIC=$(filter-out build/main.o, $(build))
+DOX=$(`ls`)
 
 all : exe
 
-debug:
+debug :
 	@echo $(SRC)
-	@echo $(OBJ)
+	@echo $(build)
 	@echo $(INC)
 
-build/%.o : $(SRC) $(INC)
+build/%.o : src/%.c $(INC)
+	mkdir -p build
 	gcc -c $< -o $@
 
-exe: $(OBJ)
-	echo hello
-	gcc -fsanitize=address $< -o bin/$@
+exe : $(build)
+	
+	gcc -o bin/exe $(SRC) 
+#-fsanitize=address
 
 clean:
 	rm -f build/*.o
