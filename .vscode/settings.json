@@ -16,7 +16,9 @@
         "stddef.h": "c",
         "string_view": "c",
         "initializer_list": "c",
-        "util.h": "c"
+        "util.h": "c",
+        "atomic": "c",
+        "wait.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

@@ -16,11 +16,11 @@ build/%.o : src/%.c $(INC)
 	mkdir -p build
 	gcc -c $< -o $@
 
-exe : $(build)
-	
-	gcc -o bin/exe $(SRC) 
-#-fsanitize=address
+exe : $(build)	
+	gcc -o bin/exe $(SRC)
+	gcc cmd/grep.c -o bin/grep
+	gcc cmd/ls.c -o bin/ls
 
 clean:
 	rm -f build/*.o
-	rm -f bin/exe
+	rm -f bin/*
