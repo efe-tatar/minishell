@@ -20,6 +20,8 @@ exe : $(build)
 	gcc -o bin/exe $(SRC)
 	gcc cmd/grep.c -o bin/grep
 	gcc cmd/ls.c -o bin/ls
+	gcc cmd/cat.c -o bin/cat
+	gcc cmd/grep2.c -o bin/grep2
 
 clean:
 	rm -f build/*.o

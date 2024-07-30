@@ -1,3 +1,3 @@
 #include "util.h"
 
-dyn_arr * lex(char *cmd);
+//dyn_arr * lex(char *cmd);

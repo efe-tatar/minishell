@@ -18,7 +18,9 @@
         "initializer_list": "c",
         "util.h": "c",
         "atomic": "c",
-        "wait.h": "c"
+        "wait.h": "c",
+        "exe.h": "c",
+        "lex.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
