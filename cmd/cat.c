@@ -23,7 +23,9 @@ int main(int argc, char **argv){
         write(1, buffer, n);
     }
 
-    write(1, "wtf", 4);
+    char eof = EOF;
+
+    write(1, &eof, 1);
     
     if(fd) close(fd);
 
