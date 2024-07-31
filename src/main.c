@@ -8,14 +8,14 @@ int main(int argc, char **argv)
     struct cmd cat;
     cat.cmdName = "bin/cat";
     cat.type = cmd;
-    char *args[] = {"cat", "file.txt", NULL};
+    char *args[] = {"cat", "file2", NULL};
     cat.args = args;
 
     struct cmd grep2;
     grep2.cmdName = "bin/grep2";
     grep2.type = cmd;
-    char *args2[] = {"grep2", "train", NULL};
-    grep2.args = args;
+    char *args2[] = {"grep2", "file", NULL};
+    grep2.args = args2;
 
     struct pip pipe;
     pipe.leftNode = (struct node *)&cat;

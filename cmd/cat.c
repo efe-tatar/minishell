@@ -22,6 +22,8 @@ int main(int argc, char **argv){
     while((n = read(fd, buffer, BUFFER_SIZE)) > 0){
         write(1, buffer, n);
     }
+
+    write(1, "wtf", 4);
     
     if(fd) close(fd);
 
