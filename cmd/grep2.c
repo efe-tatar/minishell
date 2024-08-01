@@ -86,5 +86,8 @@ int main(int argc, char **argv)
 
 	grep(argv[1], fd);
 
+	char eof = EOF;
+	write(1, &eof, 1);
+
 	exit(0);
 }

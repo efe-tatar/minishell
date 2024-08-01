@@ -20,7 +20,10 @@
         "atomic": "c",
         "wait.h": "c",
         "exe.h": "c",
-        "lex.h": "c"
+        "lex.h": "c",
+        "*.tcc": "c",
+        "random": "c",
+        "limits": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

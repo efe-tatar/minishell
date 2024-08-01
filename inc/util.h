@@ -15,7 +15,7 @@ enum lex_type{
     OPT,    // option
     OP      // operation
 };
-/*
+
 struct token{
     enum lex_type type;
     char *lexeme;
@@ -30,7 +30,6 @@ typedef struct __dyn_array_struct__{
 
 #define DYN_ARR_EXT 4
 dyn_arr * arr_append(dyn_arr *arr, struct token *t);
-*/
 
 
 enum nodeType{

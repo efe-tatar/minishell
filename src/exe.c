@@ -138,4 +138,12 @@ int exec_sep(struct sep *n)
  */
 int exec_amp(struct amp *n)
 {
+    pid_t p = fork();
+
+    if (!p){
+        execute((struct node *)n);
+        //exit(-1);
+    }
+
+    return 0;
 }
