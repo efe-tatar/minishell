@@ -130,7 +130,7 @@ dyn_arr * lex(char *cmd)
                 break;
         }
 
-    printf("\nsize arr:\t%d\n", arr->size);
+    printf("size arr:\t%d\n", arr->size);
 
     return arr;
 

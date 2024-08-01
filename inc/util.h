@@ -28,10 +28,6 @@ typedef struct __dyn_array_struct__{
 }dyn_arr;
 
 
-#define DYN_ARR_EXT 4
-dyn_arr * arr_append(dyn_arr *arr, struct token *t);
-
-
 enum nodeType{
     cmd,
     pip,

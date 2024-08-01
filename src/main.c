@@ -1,40 +1,40 @@
 #include "../inc/exe.h"
+#include "../inc/lex.h"
 
+#define COMMAND_BUFFER_SIZE 500
 
-int main(int argc, char **argv)
-{    
-    int status;
+void free_dyn_arr(dyn_arr *arr);
 
-    struct cmd cat;
-    cat.cmdName = "bin/cat";
-    cat.type = cmd;
-    char *args[] = {"cat", "file2", NULL};
-    cat.args = args;
+int main(int argc, char **argv){
 
-    struct cmd grep2;
-    grep2.cmdName = "bin/grep2";
-    grep2.type = cmd;
-    char *args2[] = {"grep2", "file", NULL};
-    grep2.args = args2;
+    char buffer[COMMAND_BUFFER_SIZE];
 
-    struct cmd grep3;
-    grep3.cmdName = "bin/grep2";
-    grep3.type = cmd;
-    char *args3[] = {"grep2", "love", NULL};
-    grep3.args = args3;
+    dyn_arr *arr = NULL;
+    
+    while(1)
+    {
+        getcwd(buffer, COMMAND_BUFFER_SIZE);
+        write(1, "\033[34m", 6);
+        write(1, buffer, strlen(buffer));
+        write(1, "\033[37m", 6);
+        write(1, "$ ", 3);
 
-    struct pip pipe;
-    pipe.leftNode = (struct node *)&cat;
-    pipe.rightNode = (struct node *)&grep2;
-    pipe.type = pip;
+        int n = read(0, buffer, COMMAND_BUFFER_SIZE);
+        buffer[n] = '\0';
+        printf("%s", buffer);
 
-    struct pip pipe2;
-    pipe2.leftNode = (struct node *)&pipe;
-    pipe2.rightNode = (struct node *)&grep3;
-    pipe2.type = pip;
+        arr = lex(buffer);
 
-    status = execute((struct node *)(&pipe2));
+        free_dyn_arr(arr);
+        arr = NULL;
+    }
 
-    printf("\nexit status: %d\n", status/255);
-    return 0;
+}
+
+void free_dyn_arr(dyn_arr *dyn){
+    for(int i = 0 ; i < dyn->size ; i++){
+        free((dyn->arr+i)->lexeme);
+    }
+    free(dyn->arr);
+    free(dyn);
 }
